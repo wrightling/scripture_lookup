@@ -1,3 +1,5 @@
-class Scripture_lookup
+class ScriptureLookup
+  def lookup book, chapter, verse
 
+  end
 end
