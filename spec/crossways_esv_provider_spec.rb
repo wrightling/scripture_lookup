@@ -14,9 +14,16 @@ describe CrosswaysEsvProvider do
 
   describe "#lookup" do
     it "takes book, chapter, verse & returns scripture for John 3:16" do
-      @provider.lookup('John', 3, 16).should eql "For God so loved the world"\
+      @provider.lookup('John', 3, 16).should eql "\"For God so loved the world"\
         ", that he gave his only Son, that whoever "\
-        "believes in him should not perish but has eternal life."
+        "believes in him should not perish but have eternal life."
     end
+
+    it "takes book, chapter, verse & returns scripture for Psalm 23" do
+      @provider.lookup('Psalm', 23).should eql "\"For God so loved the world"\
+        ", that he gave his only Son, that whoever "\
+        "believes in him should not perish but have eternal life."
+    end
+
   end
 end
