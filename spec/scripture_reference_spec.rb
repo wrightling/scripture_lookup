@@ -12,32 +12,33 @@ describe ScriptureReference do
     end
   end
 
-  describe "with scripture initialization using setters" do
+  describe "with reference set to \"John 3:16\"" do
     before :each do
-      @reference.book = 'John'
-      @reference.chapter = 3
-      @reference.from_verse = 16
+      @reference.reference = "John 3:16"
     end
 
-    describe "with initialization to John 3:16 using setters" do
-      it "should have book=John, chapter=3, from_verse=16, to_verse=nil" do
-        @reference.book.should eql "John"
-        @reference.chapter.should eql 3
-        @reference.from_verse.should eql 16
-        @reference.to_verse.should be_nil
+    describe "#reference=" do
+      it "should properly set the reference to John 3:16" do
+        @reference.reference.should eql "John 3:16"
       end
+    end
 
-      describe "#to_s" do
-        it "should return \"John 3:16\"" do
-          @reference.to_s.should eql "John 3:16"
-        end
+    describe "#to_s" do
+      it "should properly return \"John 3:16\"" do
+        @reference.to_s.should eql "John 3:16"
       end
+    end
 
-      describe "#to_str" do
-        it "should return \"John 3:16\"" do
-          @reference.to_str.should eql "John 3:16"
-        end
+    describe "#to_str" do
+      it "should properly return \"John 3:16\"" do
+        @reference.to_str.should eql "John 3:16"
       end
+    end
+  end
+
+  describe "#build_reference" do
+    it "should properly set \"John 3:16-18\"" do
+      @reference.build_reference( "John", 3, 16, 18).to_s.should eql "John 3:16-18"
     end
   end
 end
