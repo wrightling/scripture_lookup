@@ -1,9 +1,12 @@
 require 'spec_helper'
 require 'scripture_lookup'
+require 'scripture_lookup/scripture_reference'
 
 describe ScriptureLookup do
   before :each do
     @scripture_lookup = ScriptureLookup.new
+
+    @rom3_23 = ScriptureReference.new.reference = "Rom 3:23"
   end
 
   describe "#new" do
@@ -14,7 +17,7 @@ describe ScriptureLookup do
 
   describe "#lookup" do
     it "takes book, chapter, verse & returns scripture" do
-      @scripture_lookup.lookup('Romans',3,23).should eql "For all have sinned and fall short of the glory of God."
+      @scripture_lookup.lookup(@rom3_23).should eql "for all have sinned and fall short of the glory of God,"
     end
   end
 end

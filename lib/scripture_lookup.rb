@@ -1,5 +1,11 @@
 class ScriptureLookup
-  def lookup book, chapter, verse
+  attr_accessor :providers
 
+  def initialize
+    @providers = [CrosswaysEsvProvider.new]
+  end
+
+  def lookup reference
+    @providers[0].lookup(reference)
   end
 end
