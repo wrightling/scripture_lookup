@@ -1,12 +1,11 @@
 require 'spec_helper'
 require 'scripture_lookup'
-require 'scripture_lookup/scripture_reference'
 
 describe ScriptureLookup do
   before :each do
     @scripture_lookup = ScriptureLookup.new
 
-    @rom3_23 = ScriptureReference.new.reference = "Rom 3:23"
+    @rom3_23 = "Rom 3:23"
   end
 
   describe "#new" do

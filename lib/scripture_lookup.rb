@@ -1,11 +1,13 @@
+require 'scripture_lookup/crossways_esv_provider'
+
 class ScriptureLookup
-  attr_accessor :providers
+  attr_accessor :provider
 
   def initialize
-    @providers = [CrosswaysEsvProvider.new]
+    @provider = CrosswaysEsvProvider.new
   end
 
   def lookup reference
-    @providers[0].lookup(reference)
+    @provider.lookup(reference)
   end
 end
