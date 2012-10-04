@@ -2,19 +2,19 @@ require 'spec_helper'
 require 'scripture_lookup/crossways_esv_provider'
 require 'scripture_lookup/scripture_reference'
 
-describe CrosswaysEsvProvider do
+describe ScriptureLookup::CrosswaysEsvProvider do
   before :each do
-    @provider = CrosswaysEsvProvider.new
+    @provider = ScriptureLookup::CrosswaysEsvProvider.new
 
-    @one_verse = ScriptureReference.new.reference = "John 3:16"
-    @two_verses = ScriptureReference.new.reference = "2 Timothy 3:16-17"
-    @six_verses = ScriptureReference.new.reference = "Col 1:9-14"
-    @psalm_23 = ScriptureReference.new.reference = "Psalm 23"
+    @one_verse = ScriptureLookup::ScriptureReference.new.reference = "John 3:16"
+    @two_verses = ScriptureLookup::ScriptureReference.new.reference = "2 Timothy 3:16-17"
+    @six_verses = ScriptureLookup::ScriptureReference.new.reference = "Col 1:9-14"
+    @psalm_23 = ScriptureLookup::ScriptureReference.new.reference = "Psalm 23"
   end
 
   describe "#new" do
     it "returns a CrosswaysEsvProvider instance" do
-      @provider.should be_an_instance_of CrosswaysEsvProvider
+      @provider.should be_an_instance_of ScriptureLookup::CrosswaysEsvProvider
     end
   end
 

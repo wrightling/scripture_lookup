@@ -1,2 +1,4 @@
-class NullScripture
+module ScriptureLookup
+  class NullScripture
+  end
 end

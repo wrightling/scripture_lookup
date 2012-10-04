@@ -1,6 +1,8 @@
-class NullProvider
+module ScriptureLookup
+  class NullProvider
 
-  def lookup book, chapter, verse
-    NullScripture.new
+    def lookup reference
+      NullScripture.new
+    end
   end
 end

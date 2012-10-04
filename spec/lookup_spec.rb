@@ -2,16 +2,16 @@ require 'spec_helper'
 require 'scripture_lookup/lookup'
 
 # This class may be obsolete as I move towards a modle-centric design.
-describe Lookup do
+describe ScriptureLookup::Lookup do
   before :each do
-    @lookup = Lookup.new
+    @lookup = ScriptureLookup::Lookup.new
 
     @rom3_23 = "Rom 3:23"
   end
 
   describe "#new" do
     it "returns a Lookup object" do
-      @lookup.should be_an_instance_of Lookup
+      @lookup.should be_an_instance_of ScriptureLookup::Lookup
     end
   end
 

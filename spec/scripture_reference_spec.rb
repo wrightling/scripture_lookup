@@ -1,14 +1,14 @@
 require 'spec_helper'
 require 'scripture_lookup/scripture_reference'
 
-describe ScriptureReference do
+describe ScriptureLookup::ScriptureReference do
   before :each do
-    @reference = ScriptureReference.new
+    @reference = ScriptureLookup::ScriptureReference.new
   end
 
   describe "#new" do
     it "returns a ScriptureReference instance" do
-      @reference.should be_an_instance_of ScriptureReference
+      @reference.should be_an_instance_of ScriptureLookup::ScriptureReference
     end
   end
 
