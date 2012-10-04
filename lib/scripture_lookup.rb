@@ -1,4 +1,4 @@
 module ScriptureLookup
-  autoload :Lookup, 'lib/lookup'
-  autoload :CrosswaysEsvProvider, 'lib/crossways_esv_provider'
+  autoload :Lookup, 'scripture_lookup/lookup'
+  autoload :CrosswaysEsvProvider, 'scripture_lookup/crossways_esv_provider'
 end
