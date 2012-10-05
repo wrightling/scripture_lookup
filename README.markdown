@@ -15,12 +15,12 @@ formatting.
 
 To Do
 -----
-* Move the version information out of the gemspec and into
-  lib/scripture_lookup/version.rb.
-* Design and add in option selection capabilities so the user can choose
-  to return verse numbers, footnotes, or other formatting options
-presented by the Crossways ESV api.
 * Add initial implementation of the [Bible Gateway
-  API](http://api.biblia.com/docs) in support of
+  API](http://beta.biblegateway.com/apidocs) in support of
   other Bible translations.
+* Design and add in option selection capabilities so the user can choose
+  to return verse numbers, footnotes, or other formatting options 
+  presented by the Crossways ESV api.
 * Add command line to pull back scripture.
+* Design and add in controller classes to facilitate lookups on various 
+  Bible versions.
