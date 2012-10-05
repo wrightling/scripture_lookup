@@ -1,6 +1,9 @@
+$:.push File.expand_path("../lib", __FILE__)
+require 'scripture_lookup/version'
+
 Gem::Specification.new do |s|
   s.name          = 'scripture_lookup'
-  s.version       = '0.0.1.pre'
+  s.version       = ScriptureLookup::VERSION
   s.date          = '2012-10-01'
   s.summary       = "Pull back verses from popular Bible sites easily."
   s.description   = "A gem to assist in pulling back and querying scripture."
