@@ -6,7 +6,7 @@ module ScriptureLookup
       url = "http://www.biblegateway.com/passage/?search=#{reference}&version=#{version.to_s}"
       page = MetaInspector.new(url)
       doc = page.parsed_document
-      doc.css('div.passage p span.text').children.last.text
+      doc.xpath('//div[contains(@class,"passage")]//p//span[contains(@class,"text")]').children.last.text
     end
   end
 end

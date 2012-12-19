@@ -20,7 +20,7 @@ describe ScriptureLookup::BibleGatewayScraper do
     end
 
     it "takes a ScriptureReference & returns scripture for Psalm 23" do
-      @provider.lookup(make_ref("Psalm 23"), :ESV).should match(/A Psalm of David.*Even though I walk through the valley of the shadow of death,\n\s*I will fear no evil,.*and I shall dwell in the house of the LORD\n\s*forever\..*/m)
+      @provider.lookup(make_ref("Psalm 23"), :ESV).should match(/The Lord is my shepherd.*Even though I walk through the valley of the shadow of death,\n\s*I will fear no evil,.*and I shall dwell in the house of the LORD\n\s*forever\..*/m)
     end
 
   end
