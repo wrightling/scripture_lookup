@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'scripture_lookup'
+
+# Use the default provider.
+provider = ScriptureLookup.new
+
+translation = ARGV[1]
+translation ||= :NASB
+puts provider.lookup(ARGV[0], translation)
