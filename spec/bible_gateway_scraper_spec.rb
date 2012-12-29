@@ -48,5 +48,8 @@ describe ScriptureLookup::BibleGatewayScraper do
         "Son,\nwho purchased our freedom and forgave our sins."
     end
 
+    it "responds to an invalid version with an appropriate message" do
+      @provider.lookup(make_ref("Rom 3:23"), :FAKE).should eql "Version FAKE is not valid."
+    end
   end
 end
