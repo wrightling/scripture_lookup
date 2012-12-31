@@ -14,6 +14,10 @@ describe ScriptureLookup::BibleGatewayScraper do
     end
   end
 
+  # Integration Tests
+  #
+  # Given a lack of contract around the HTML from BibleGateway.com, it is
+  # important to avoid mocks and run against the production site.
   describe "#lookup" do
     it "takes ScriptureReference & translation & returns text for John 3:16" do
       @provider.lookup(make_ref("John 3:16"), :KJV).should eql "For God so"\
