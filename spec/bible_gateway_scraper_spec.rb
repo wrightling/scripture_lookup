@@ -21,17 +21,17 @@ describe ScriptureLookup::BibleGatewayScraper do
   describe "#lookup" do
     context "with Response#to_s" do
       it "takes ScriptureReference & translation & returns text for John 3:16" do
-        @provider.lookup(make_ref("John 3:16"), :KJV).to_s.should eql "For God so"\
+        @provider.lookup("John 3:16", :KJV).to_s.should eql "For God so"\
           " loved the world, that he gave his only begotten Son, that whosoever"\
           " believeth in him should not perish, but have everlasting life."
       end
 
       it "takes a ScriptureReference & returns scripture for Psalm 23" do
-        @provider.lookup(make_ref("Psalm 23"), :ESV).to_s.should match(/The Lord is my shepherd.*Even though I walk through the valley of the shadow of death, I will fear no evil,.*and I shall dwell in the house of the Lord forever\..*/m)
+        @provider.lookup("Psalm 23", :ESV).to_s.should match(/The Lord is my shepherd.*Even though I walk through the valley of the shadow of death, I will fear no evil,.*and I shall dwell in the house of the Lord forever\..*/m)
       end
 
       it "takes a ScriptureReference & returns scripture for John 3:16-17 from a German Bible" do
-        @provider.lookup(make_ref("John 3:16-17"), :LUTH1545).to_s.should eql "Also hat "\
+        @provider.lookup("John 3:16-17", :LUTH1545).to_s.should eql "Also hat "\
           "Gott die Welt geliebt, daß er seinen eingeborenen Sohn gab, auf daß "\
           "alle, die an ihn glauben, nicht verloren werden, sondern das ewige "\
           "Leben haben. Denn Gott hat seinen Sohn nicht gesandt in die Welt, "\
@@ -39,7 +39,7 @@ describe ScriptureLookup::BibleGatewayScraper do
       end
 
       it "takes a ScriptureReference & returns scripture for Col 1:9-14 from the NLT" do
-        @provider.lookup(make_ref("Col 1:9-14"), :NLT).to_s.should eql "So we have not "\
+        @provider.lookup("Col 1:9-14", :NLT).to_s.should eql "So we have not "\
           "stopped praying for you since we first heard about you. We ask God to "\
         "give you complete knowledge of his will and to give you spiritual wisdom "\
         "and understanding. Then the way you live will always honor and please the "\
@@ -56,13 +56,13 @@ describe ScriptureLookup::BibleGatewayScraper do
 
     context "with Response#response_data" do
       it "takes ScriptureReference & translation & returns text for John 3:16" do
-        @provider.lookup(make_ref("John 3:16"), :KJV).response_data.should include(
+        @provider.lookup("John 3:16", :KJV).response_data.should include(
           translation: 'King James Version (KJV)'
         )
       end
 
       it "takes a ScriptureReference & returns scripture for Psalm 23" do
-        @provider.lookup(make_ref("Psalm 23"), :ESV).response_data.should include(
+        @provider.lookup("Psalm 23", :ESV).response_data.should include(
           translation: 'English Standard Version (ESV)'
         )
       end

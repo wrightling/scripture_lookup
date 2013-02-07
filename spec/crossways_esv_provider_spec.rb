@@ -14,13 +14,13 @@ describe ScriptureLookup::CrosswaysEsvProvider do
 
   describe "#lookup" do
     it "takes a ScriptureReference & returns scripture for John 3:16" do
-      @provider.lookup(make_ref "John 3:16").should eql "\"For God so loved the world"\
+      @provider.lookup("John 3:16").should eql "\"For God so loved the world"\
         ", that he gave his only Son, that whoever "\
         "believes in him should not perish but have eternal life."
     end
 
     it "takes a ScriptureReference & returns scripture for Psalm 23" do
-      @provider.lookup(make_ref "Psalm 23").should match(/A Psalm of David.*Even though I walk through the valley of the shadow of death,\n\s*I will fear no evil,.*and I shall dwell in the house of the LORD\n\s*forever\..*/m)
+      @provider.lookup("Psalm 23").should match(/A Psalm of David.*Even though I walk through the valley of the shadow of death,\n\s*I will fear no evil,.*and I shall dwell in the house of the LORD\n\s*forever\..*/m)
     end
   end
 end

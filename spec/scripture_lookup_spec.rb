@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'scripture_lookup/scripture_reference'
 require 'scripture_lookup'
 
 describe ScriptureLookup do
