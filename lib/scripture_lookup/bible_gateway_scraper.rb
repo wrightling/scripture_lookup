@@ -1,20 +1,29 @@
 require 'metainspector'
-require 'loofah'
+require_relative 'response'
+require_relative 'parsers/bible_gateway_scrape_parser'
 
 module ScriptureLookup
   class BibleGatewayScraper
+    attr_accessor :options
+
+    def initialize(opts = {})
+      @options = default_options.merge(opts)
+    end
+
+    def default_options
+      {response_class: Response,
+       parser: BibleGatewayScrapeParser}
+    end
+
     def lookup reference, version
       url = "http://www.biblegateway.com/passage/?search=#{reference}&version=#{version.to_s}"
-      frag = Loofah.fragment(get_doc(url))
+      doc = get_doc(url)
 
-      kill_sup = Loofah::Scrubber.new { |node| node.remove if node.name == "sup" or node["class"] == "chapternum" }
-      frag.scrub!(kill_sup)
+      generate_response doc
 
-      nodes = frag.xpath('.//div[contains(@class, "passage")]//p//span[contains(@class,"text")]')
-      nodes.to_a.join("\n")
-
+      # Push out messy logic that populates errors into Response
       rescue Exception => e
-        e.message
+        report_errors e
     end
 
     private
@@ -28,6 +37,14 @@ module ScriptureLookup
       raise page.errors[0] if !page.ok?
 
       doc
+    end
+
+    def generate_response doc
+      parser = options[:parser].new
+      options[:response_class].new(parser.parse(doc))
+    end
+
+    def report_errors exception
     end
   end
 end

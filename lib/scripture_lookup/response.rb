@@ -5,42 +5,42 @@ module ScriptureLookup
   # Response encapsulates the response from any of the various
   # scripture providers.
   #
-  # Response.data is expected to be a well formatted hash of
-  # scripture.  While any structure is allowed, it is advantageous
-  # for the provider to populate this class with a hash containing
-  # the following keys.
-  #   * :title - Any title provided by the scripture provider, such
-  #              as "For God So Loved the World", which is provided
-  #              by BibleGateway.com for the ESV translation of
-  #              John 3:16.
-  #   * :reference - The full reference coming back from the provider
-  #                  that describes the section of scripture, such as
-  #                  "Psalm 23:1-4".
-  #   * :translation - The name of the translation coming back from the
-  #                    provider, such as "English Standard Version (ESV)".
-  #   * :verses - A hash containing all verses in the section of scripture.
-  #               Each key is a verse number and each value is the full
-  #               text for that verse.
+  # Response.response_data is expected to be a well formatted hash of
+  # scripture.  Current hash structure contains the following.
+  #   * [:translation] - The name of the translation coming back from the
+  #                      provider, such as "English Standard Version (ESV)".
+  #   * [:content] - A hash of scripture, where each key is reference, such
+  #                  as "Col-1-9" or "Ps-23-2".
+  #   * [:content][<ref>][:title] - Either nil or a string containing a
+  #                                 title for that verse.
+  #   * [:content][<ref>][:subtitle] - Either nil or a string containing
+  #                                    a subtitle for that verse.
+  #   * [:content][<ref>][:verse] - An array of strings containing the scripture
+  #                                 for that verse.  This allows us to maintain
+  #                                 linebreaks between each portion of the verse
+  #                                 if desired (often Psalms and other poetic
+  #                                 sections of Scripture place linebreaks in the midst
+  #                                 of each verse).
   class Response
-    attr_reader :data
+    attr_reader :response_data
 
-    def initialize(data)
-      @data = data
+    def initialize(response_data)
+      @response_data = response_data
     end
 
-    # Default implementation of to_s simply returns the text for each
-    # verse, separated by newline characters.
-    def to_s()
-      verses = @data[:verses]
-      if verses != nil
-        verses.values.join("\n")
-      else
-        ""
+    def verses
+      response_data[:content].values.inject([]) do |res, verse|
+        res + verse[:verse]
       end
     end
 
-    def to_json()
-      MultiJson.dump @data
+    # Default implementation of to_s simply returns the text for each
+    # verse as a single paragraph (no line breaks).
+    def to_s
+      response_data[:content].values.inject("") do |res, verse|
+        res += " " unless res.empty?
+        res + verse[:verse].join(" ")
+      end
     end
   end
 end
