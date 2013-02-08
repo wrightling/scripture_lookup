@@ -20,6 +20,11 @@ module ScriptureLookup
       doc = get_doc(url)
 
       generate_response doc
+
+    rescue ScriptureLookup::Error
+      raise
+    rescue => error
+      raise ScriptureLookup::Error.new("#{error.class}: #{error.message}", error)
     end
 
     private

@@ -66,6 +66,13 @@ describe ScriptureLookup::BibleGatewayScraper do
           translation: 'English Standard Version (ESV)'
         )
       end
-   end
+    end
+
+    context "with general errors thrown" do
+      it "returns a ScriptureLookup::Error in case of an exception" do
+        @bad_provider = ScriptureLookup::BibleGatewayScraper.new(response_class: Object)
+        expect { @bad_provider.lookup("", :JUNK) }.to raise_error ScriptureLookup::Error
+      end
+    end
   end
 end
