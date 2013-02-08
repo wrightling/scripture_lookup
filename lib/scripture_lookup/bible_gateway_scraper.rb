@@ -20,10 +20,6 @@ module ScriptureLookup
       doc = get_doc(url)
 
       generate_response doc
-
-      # Push out messy logic that populates errors into Response
-      rescue Exception => e
-        report_errors e
     end
 
     private
@@ -42,9 +38,6 @@ module ScriptureLookup
     def generate_response doc
       parser = options[:parser].new
       options[:response_class].new(parser.parse(doc))
-    end
-
-    def report_errors exception
     end
   end
 end
