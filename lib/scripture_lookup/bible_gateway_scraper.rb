@@ -24,7 +24,7 @@ module ScriptureLookup
     rescue ScriptureLookup::Error
       raise
     rescue => error
-      raise ScriptureLookup::Error.new("#{error.class}: #{error.message}", error)
+      raise ScriptureLookup::Error
     end
 
     private

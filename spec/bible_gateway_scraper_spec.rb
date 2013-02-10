@@ -68,10 +68,25 @@ describe ScriptureLookup::BibleGatewayScraper do
       end
     end
 
-    context "with general errors thrown" do
-      it "returns a ScriptureLookup::Error in case of an exception" do
+    context "with a StandardError thrown" do
+      before :each do
         @bad_provider = ScriptureLookup::BibleGatewayScraper.new(response_class: Object)
+      end
+
+      it "returns a ScriptureLookup::Error instead of StandardException" do
         expect { @bad_provider.lookup("", :JUNK) }.to raise_error ScriptureLookup::Error
+      end
+
+      it "contains the message originally found in the thrown ArgumentError" do
+        expect { @bad_provider.lookup("", :JUNK) }.to raise_error { |error|
+          error.message.should eql "wrong number of arguments(1 for 0)"
+        }
+      end
+
+      it "contains an ArgumentError as the original, wrapped error" do
+        expect { @bad_provider.lookup("", :JUNK) }.to raise_error { |error|
+          error.original.should be_an_instance_of ArgumentError
+        }
       end
     end
   end
