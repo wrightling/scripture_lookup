@@ -1,4 +1,3 @@
-# A sample Gemfile
 source :rubygems
 
 gem 'httparty'
