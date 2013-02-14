@@ -27,15 +27,17 @@ Shortcut to bring back a BibleGatewayScraper instance:
     provider = ScriptureLookup.new
 
 Example usage - #to_s to pull back the text only:
+
     response = provider.lookup("John 3:16", :NASB)
     response.to_s
-
+    
     => "\“For God so loved the world, that He gave His only begotten Son, that whoever believes in Him shall not perish, but have eternal life."
 
 Example usage - #verses to pull back an array of verses
+
     response = provider.lookup("1 Thess 5:16-18", :ESV)
     response.verses
-
+    
     => ["Rejoice always,",
         "pray without ceasing,",
         "give thanks in all circumstances; for this is the will of God in Christ Jesus for you."]
