@@ -1,10 +1,9 @@
 module ScriptureLookup
   extend self
 
-  autoload :Error, 'scripture_lookup/errors/error'
-  autoload :Lookup, 'scripture_lookup/lookup'
-  autoload :CrosswaysEsvProvider, 'scripture_lookup/crossways_esv_provider'
-  autoload :BibleGatewayScraper, 'scripture_lookup/bible_gateway_scraper'
+  require_relative 'scripture_lookup/errors/error'
+  require_relative 'scripture_lookup/crossways_esv_provider'
+  require_relative 'scripture_lookup/bible_gateway_scraper'
 
   # Sugar method to be able to quickly create a provider.
   #
