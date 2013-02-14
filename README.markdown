@@ -1,4 +1,4 @@
-Scripture Lookup Gem
+Scripture Lookup Gem  [![Code Climate](https://codeclimate.com/github/wrwright/scripture_lookup.png)](https://codeclimate.com/github/wrwright/scripture_lookup)
 ====================
 
 Providers a clean interface to common scripture providers, such as
