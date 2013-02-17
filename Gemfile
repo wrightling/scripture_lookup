@@ -1,4 +1,4 @@
-source :rubygems
+source "https://www.rubygems.org"
 
 gem 'httparty'
 gem 'metainspector'
