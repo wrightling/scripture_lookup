@@ -52,6 +52,10 @@ describe ScriptureLookup::BibleGatewayScraper do
         "from the kingdom of darkness and transferred us into the Kingdom of his dear "\
         "Son, who purchased our freedom and forgave our sins."
       end
+
+      it "gracefully handles an attempt to lookup an invalid scripture reference" do
+        @provider.lookup("Fake 1", :NON).to_s.should eql ""
+      end
    end
 
     context "with Response#response_data" do
@@ -64,6 +68,13 @@ describe ScriptureLookup::BibleGatewayScraper do
       it "takes a ScriptureReference & returns scripture for Psalm 23" do
         @provider.lookup("Psalm 23", :ESV).response_data.should include(
           translation: 'English Standard Version (ESV)'
+        )
+      end
+
+      it "gracefully handles an attempt to lookup an invalid scripture reference" do
+        @provider.lookup("Fake 1", :NON).response_data.should include(
+          translation: "",
+          content: {}
         )
       end
     end
