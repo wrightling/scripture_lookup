@@ -1,5 +1,3 @@
-require 'multi_json'
-
 module ScriptureLookup
 
   # Response encapsulates the response from any of the various

@@ -9,13 +9,12 @@ Gem::Specification.new do |s|
   s.description   = "A gem to assist in pulling back and querying scripture."
   s.authors       = ["Warren Wright"]
   s.email         = 'warren@thewrightangle.com'
-  s.files         = ["lib/scripture_lookup.rb", "lib/scripture_lookup/crossways_esv_provider.rb", "lib/scripture_lookup/bible_gateway_scraper.rb", "lib/scripture_lookup/response.rb", "lib/scripture_lookup/parsers/bible_gateway_scrape_parser.rb"]
+  s.files         = ["lib/scripture_lookup.rb", "lib/scripture_lookup/bible_gateway_scraper.rb", "lib/scripture_lookup/response.rb", "lib/scripture_lookup/parsers/bible_gateway_scrape_parser.rb"]
   s.require_paths = ["lib"]
   s.homepage      = 'http://thewrightangle.com'
   s.executables   << 'scripture'
 
   s.add_development_dependency 'rspec'
-  s.add_runtime_dependency 'httparty'
   s.add_runtime_dependency 'metainspector'
   s.add_runtime_dependency 'loofah'
 end

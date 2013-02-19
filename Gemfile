@@ -1,6 +1,5 @@
 source :rubygems
 
-gem 'httparty'
 gem 'metainspector'
 gem 'loofah'
 
