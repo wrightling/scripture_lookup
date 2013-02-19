@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://www.rubygems.org/
   specs:
     addressable (2.3.2)
     coderay (1.0.8)
