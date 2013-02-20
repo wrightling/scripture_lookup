@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email         = 'warren@thewrightangle.com'
   s.files         = ["lib/scripture_lookup.rb", "lib/scripture_lookup/bible_gateway_scraper.rb", "lib/scripture_lookup/response.rb", "lib/scripture_lookup/parsers/bible_gateway_scrape_parser.rb", "lib/scripture_lookup/errors/error.rb"]
   s.require_paths = ["lib"]
-  s.homepage      = 'http://thewrightangle.com'
+  s.homepage      = 'http://github.com/wrwright/scripture_lookup'
   s.executables   << 'scripture'
 
   s.add_development_dependency 'rspec'
