@@ -54,9 +54,11 @@ Installation of this gem includes a command line interface.  To utilize, call "s
 The command line interface utilizes the Bible Gateway screen-scrape provider.
 
 ex.
-scripture "John 3:16", NASB
-scripture "Psalm 23", ESV
-scripture "Rom 12:1-2", NIV
+
+    scripture "John 3:16", NASB
+    scripture "John 3:16"
+    scripture "Psalm 23", ESV
+    scripture "Rom 12:1-2", NIV
 
 Error Handling
 --------------
