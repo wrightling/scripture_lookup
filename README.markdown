@@ -21,6 +21,7 @@ Usage
     require 'scripture_lookup'
 
 Shortcut to bring back a BibleGatewayScraper instance:
+
     provider = ScriptureLookup.new
 
 Example usage - #to_s to pull back the text only:
