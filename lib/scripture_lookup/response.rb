@@ -30,6 +30,11 @@ module ScriptureLookup
       response_data[:content].values.inject([]) do |res, verse|
         res + verse[:verse]
       end
+
+    rescue ScriptureLookup::Error
+      raise
+    rescue => error
+      raise ScriptureLookup::Error
     end
 
     # Default implementation of to_s simply returns the text for each
@@ -39,6 +44,11 @@ module ScriptureLookup
         res += " " unless res.empty?
         res + verse[:verse].join(" ")
       end
+
+    rescue ScriptureLookup::Error
+      raise
+    rescue => error
+      raise ScriptureLookup::Error
     end
   end
 end

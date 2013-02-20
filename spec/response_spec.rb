@@ -95,4 +95,22 @@ describe ScriptureLookup::Response do
       end
     end
   end
+
+  context "with invalid response_data" do
+    before :each do
+      @bad_response = ScriptureLookup::Response.new({})
+    end
+
+    describe "#verses" do
+      it "should return NoMethodError wrapped in ScriptureLookup::Error" do
+        expect { @bad_response.verses }.to raise_error ScriptureLookup::Error
+      end
+    end
+
+    describe "#to_s" do
+      it "should return NoMethodError wrapped in ScriptureLookup::Error" do
+        expect { @bad_response.to_s }.to raise_error ScriptureLookup::Error
+      end
+    end
+  end
 end
