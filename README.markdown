@@ -63,7 +63,7 @@ ex.
 Error Handling
 --------------
 
-Taking a page from Avdi Grimm's [Exceptional Ruby](http://exceptionalruby.com/) book, any errors that descend from StandardError are caught and wrapped in a namespaced error ([ScriptureLookup::Error](https://github.com/wrwright/scripture_lookup/blob/crossways/lib/scripture_lookup/errors/error.rb)) before they are allowed to unwind back tot he client application.
+Taking a page from Avdi Grimm's [Exceptional Ruby](http://exceptionalruby.com/) book, any errors that descend from StandardError are caught and wrapped in a namespaced error ([ScriptureLookup::Error](https://github.com/wrwright/scripture_lookup/blob/crossways/lib/scripture_lookup/errors/error.rb)) before they are allowed to unwind back to the client application.
 
 This is true of any public interface into the gem.
 
