@@ -16,7 +16,7 @@ module ScriptureLookup
     end
 
     def lookup reference, version
-      url = "http://www.biblegateway.com/passage/?search=#{reference}&version=#{version.to_s}"
+      url = "https://www.biblegateway.com/passage/?search=#{reference}&version=#{version.to_s}"
       doc = get_doc(url)
 
       generate_response doc
