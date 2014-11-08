@@ -11,7 +11,7 @@ describe ScriptureLookup::BibleGatewayScrapeParser do
                           "1Thess-5-18" => {verse: ["give thanks in all circumstances; for"\
                                                     " this is the will of God in Christ"\
                                                     " Jesus for you."]}}}
-    @col_1_9_14 = 
+    @col_1_9_14 =
       {translation: "New American Standard Bible (NASB)",
        content: {"Col-1-9" => {verse:  ["For this reason also, since the day we heard of it"\
                                         ", we have not ceased to pray for you and to ask that"\

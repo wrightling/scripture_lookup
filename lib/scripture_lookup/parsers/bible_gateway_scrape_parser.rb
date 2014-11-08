@@ -4,10 +4,12 @@ module ScriptureLookup
   # Encapsulate the messy parsing of raw BibleGateway.com HTML into
   # a structure of hashes and arrays expected by Response.
   class BibleGatewayScrapeParser
+    CLASSES_TO_IGNORE = ["chapternum", "icon-fallback-text", "footnote-text"]
+
     def parse(doc)
       # scrub out footnotes and cross references.
       frag = Loofah.fragment(doc)
-      kill_sup = Loofah::Scrubber.new { |node| node.remove if (node.name == "sup") or node["class"] == "chapternum" }
+      kill_sup = Loofah::Scrubber.new { |node| node.remove if (node.name == "sup") or CLASSES_TO_IGNORE.include?(node["class"]) }
       frag.scrub!(kill_sup)
 
       {translation: translation(frag),
@@ -17,7 +19,7 @@ module ScriptureLookup
     private
 
     def translation(doc)
-      path = './/div[contains(@class, "heading")]/p'
+      path = './/span[contains(@class, "passage-display-version")]'
       doc.xpath(path).text
     end
 

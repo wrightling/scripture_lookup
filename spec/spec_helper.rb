@@ -1,4 +1,5 @@
 require 'rspec'
+require 'pry'
 require 'scripture_lookup/response'
 require 'scripture_lookup/errors/error'
 
