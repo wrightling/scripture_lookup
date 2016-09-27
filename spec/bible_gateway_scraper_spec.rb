@@ -92,7 +92,7 @@ describe ScriptureLookup::BibleGatewayScraper do
         expect { @bad_provider.lookup("", :JUNK) }.to raise_error { |error|
           # Using match instead of eql because of discrepencies between
           # ArgumentError messages between MRI and Jruby.
-          error.message.should match /wrong number of arguments.*(.*1, .*0)/
+          error.message.should match /wrong number of arguments.*(.*1.*0)/
         }
       end
 
