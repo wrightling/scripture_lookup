@@ -4,7 +4,7 @@ require 'scripture_lookup/response'
 require 'scripture_lookup/errors/error'
 
 RSpec.configure do |config|
-  config.color_enabled = true
+  config.color = true
   config.formatter     = 'documentation'
 end
 
